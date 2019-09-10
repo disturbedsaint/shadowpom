@@ -15,14 +15,12 @@ shadowJar {
     relocate 'com.google', 'shadowpom.internal.com.google'
 }
 
-//afterEvaluate {
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                artifact shadowJar
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact shadowJar
 
-                from components.java
-            }
+            from components.java
         }
     }
-//}
+}
