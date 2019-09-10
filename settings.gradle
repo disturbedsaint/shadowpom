@@ -1,0 +1,3 @@
+rootProject.name = 'shadowpom'
+
+include 'SomeLib2', 'SomeLib1', 'SomeApp'

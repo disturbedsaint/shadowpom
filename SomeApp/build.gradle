@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+dependencies {
+    compile 'shadowpom:SomeLib1:1.0'
+}
+
+mainClassName = 'shadowpom.SomeApp'

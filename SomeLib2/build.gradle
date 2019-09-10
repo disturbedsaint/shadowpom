@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id "com.github.johnrengelman.shadow" version "5.1.0"
+}
+
+dependencies {
+    compile 'com.google.guava:guava:27.0.1-jre'
+}
+
+build.dependsOn shadowJar
+shadowJar {
+    setZip64(true)
+
+    relocate 'com.google', 'shadowpom.internal.com.google'
+}
+
+//afterEvaluate {
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifact shadowJar
+
+                from components.java
+            }
+        }
+    }
+//}

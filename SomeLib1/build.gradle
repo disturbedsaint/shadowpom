@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+dependencies {
+
+    // Swap these 2 dependencies to get things to work.
+    compile(project(path: ":SomeLib2", configuration: 'shadow')) {
+//    compile ('shadowpom:SomeLib2:1.0:all') {
+        transitive = false
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
